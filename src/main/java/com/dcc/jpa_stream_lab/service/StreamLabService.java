@@ -77,12 +77,14 @@ public class StreamLabService {
         return users.findAll().stream().filter(u -> u.getRegistrationDate().before(date1)).toList();
     }
 
-    public List<User> RProblemFive()
-    {
+    public List<User> RProblemFive() throws ParseException {
         // Write a query that gets all of the users who registered AFTER 2016 and BEFORE 2018
         // Return the list
-
-        return null;
+        String bDate = "01/01/2018";
+        String aDate = "01/01/2016";
+        Date dateB = new SimpleDateFormat("dd/MM/yyyy").parse(bDate);
+        Date dateA = new SimpleDateFormat("dd/MM/yyyy").parse(aDate);
+        return users.findAll().stream().filter(u -> u.getRegistrationDate().before(dateB)&&u.getRegistrationDate().after(dateA)).toList();
     }
 
     // <><><><><><><><> R Actions (Read) with Foreign Keys <><><><><><><><><>
