@@ -1,6 +1,9 @@
 package com.dcc.jpa_stream_lab.service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -64,14 +67,14 @@ public class StreamLabService {
     	return products.findAll().stream().filter(p -> p.getName().contains("s")).toList();
     }
 
-    public List<User> RProblemFour()
-    {
+    public List<User> RProblemFour() throws ParseException {
         // Write a query that gets all the users who registered BEFORE 2016
         // Return the list
         // Research 'java create specific date' and 'java compare dates'
         // You may need to use the helper classes imported above!
-    	
-        return null;
+        String sDate1 = "01/01/2016";
+        Date  date1 = new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);
+        return users.findAll().stream().filter(u -> u.getRegistrationDate().before(date1)).toList();
     }
 
     public List<User> RProblemFive()
