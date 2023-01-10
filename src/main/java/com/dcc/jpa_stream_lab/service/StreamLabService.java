@@ -1,11 +1,6 @@
 package com.dcc.jpa_stream_lab.service;
 
 import java.util.List;
-import java.util.stream.Collectors;
-
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,7 +41,7 @@ public class StreamLabService {
         // Return the COUNT of all the users from the User table.
         // You MUST use a .stream(), don't listen to the squiggle here!
         // Remember yellow squiggles are warnings and can be ignored.
-    	return users.findAll().stream().;
+    	return users.findAll().stream().count();
     }
 
     public List<Product> RDemoTwo()
